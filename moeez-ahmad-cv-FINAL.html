@@ -1,0 +1,1077 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Moeez Ahmad — CV</title>
+<link href="https://fonts.googleapis.com/css2?family=Clash+Display:wght@300;400;500;600;700&family=Satoshi:wght@300;400;500;700&family=DM+Mono:ital,wght@0,300;0,400;1,300&display=swap" rel="stylesheet"/>
+<style>
+
+/* ─────────────────────────────────────
+   TOKENS
+───────────────────────────────────── */
+:root{
+  --white:   #FFFFFF;
+  --off:     #F7F7F5;
+  --ink:     #0C0C0A;
+  --muted:   #888880;
+  --border:  #E4E4E0;
+  --green:   #AAFF00;
+  --green2:  rgba(170,255,0,.12);
+  --green3:  rgba(170,255,0,.06);
+}
+
+/* ─────────────────────────────────────
+   RESET & BASE
+───────────────────────────────────── */
+*,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+html{scroll-behavior:smooth}
+
+body{
+  background:var(--white);
+  color:var(--ink);
+  font-family:'Satoshi',sans-serif;
+  font-weight:300;
+  line-height:1.6;
+  overflow-x:hidden;
+  cursor:none;
+  -webkit-font-smoothing:antialiased;
+}
+
+a{color:inherit;text-decoration:none}
+::-webkit-scrollbar{width:2px}
+::-webkit-scrollbar-thumb{background:var(--green)}
+
+/* ─────────────────────────────────────
+   CURSOR
+───────────────────────────────────── */
+#c1{
+  position:fixed;width:8px;height:8px;
+  background:var(--ink);border-radius:50%;
+  pointer-events:none;z-index:9999;
+  transform:translate(-50%,-50%);
+  transition:width .18s,height .18s,background .2s;
+}
+#c2{
+  position:fixed;width:36px;height:36px;
+  border:1.5px solid rgba(12,12,10,.2);
+  border-radius:50%;pointer-events:none;z-index:9998;
+  transform:translate(-50%,-50%);
+  transition:border-color .25s,width .22s,height .22s;
+}
+body:hover #c1{opacity:1}
+
+/* ─────────────────────────────────────
+   TOP BAR (neon ticker)
+───────────────────────────────────── */
+.topbar{
+  background:var(--green);
+  overflow:hidden;white-space:nowrap;
+  padding:9px 0;border-bottom:1px solid var(--ink);
+}
+.topbar-track{
+  display:inline-flex;
+  animation:ticker 20s linear infinite;
+}
+.topbar-track:hover{animation-play-state:paused}
+.t-item{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.22em;text-transform:uppercase;
+  color:var(--ink);padding:0 24px;
+  display:flex;align-items:center;gap:24px;
+}
+.t-sep{opacity:.3;font-size:8px}
+@keyframes ticker{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
+
+/* ─────────────────────────────────────
+   NAV
+───────────────────────────────────── */
+.nav{
+  position:sticky;top:0;z-index:500;
+  background:rgba(255,255,255,.94);
+  backdrop-filter:blur(16px);
+  border-bottom:1px solid var(--border);
+  padding:0 6vw;
+  display:flex;align-items:center;justify-content:space-between;
+  height:58px;
+}
+.nav-logo{
+  font-family:'DM Mono',monospace;font-size:12px;
+  letter-spacing:.1em;color:var(--ink);font-weight:400;
+}
+.nav-logo span{
+  display:inline-block;width:8px;height:8px;
+  background:var(--green);border-radius:50%;
+  margin-left:6px;vertical-align:middle;
+  animation:blink 2s step-end infinite;
+}
+@keyframes blink{0%,100%{opacity:1}50%{opacity:0}}
+.nav-links{display:flex;gap:2px}
+.nav-links a{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  color:var(--muted);padding:6px 12px;
+  border-radius:2px;transition:color .2s;
+}
+.nav-links a:hover{color:var(--ink)}
+.nav-cta{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:var(--ink);color:var(--white)!important;
+  padding:7px 16px!important;border-radius:2px;
+  transition:background .2s!important;
+}
+.nav-cta:hover{background:var(--green)!important;color:var(--ink)!important}
+
+/* ─────────────────────────────────────
+   HERO
+───────────────────────────────────── */
+.hero{
+  padding:80px 6vw 0;
+  position:relative;overflow:hidden;
+  border-bottom:1px solid var(--border);
+}
+
+/* subtle grid */
+.hero::before{
+  content:'';position:absolute;inset:0;
+  background-image:
+    linear-gradient(var(--border) 1px,transparent 1px),
+    linear-gradient(90deg,var(--border) 1px,transparent 1px);
+  background-size:48px 48px;
+  opacity:.4;pointer-events:none;
+}
+
+.hero-inner{
+  max-width:1280px;margin:0 auto;
+  position:relative;z-index:2;
+}
+
+/* eyebrow */
+.h-eyebrow{
+  display:flex;align-items:center;gap:12px;
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.2em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:28px;
+  opacity:0;animation:fadeUp .7s .05s forwards;
+}
+.h-eyebrow::before{
+  content:'';width:28px;height:1px;background:var(--green);
+}
+.h-eyebrow .green{color:var(--green);background:var(--ink);padding:2px 8px;border-radius:2px;font-size:9px}
+
+/* BIG NAME */
+.hero-name{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(72px,12vw,200px);
+  font-weight:600;
+  line-height:.88;
+  letter-spacing:-.03em;
+  margin-bottom:0;
+  overflow:hidden;
+}
+.hero-name .row{display:block;overflow:hidden}
+.hero-name .row span{
+  display:block;
+  transform:translateY(105%);
+}
+.hero-name .row:nth-child(1) span{animation:nameUp 1s cubic-bezier(.77,0,.18,1) .15s forwards}
+.hero-name .row:nth-child(2) span{
+  animation:nameUp 1s cubic-bezier(.77,0,.18,1) .28s forwards;
+  -webkit-text-stroke:1.5px var(--ink);
+  color:transparent;
+}
+
+@keyframes nameUp{to{transform:translateY(0)}}
+
+/* stats bar */
+.hero-stats{
+  display:grid;grid-template-columns:repeat(4,1fr);
+  border:1px solid var(--border);
+  border-radius:6px;
+  margin-top:36px;
+  overflow:hidden;
+  opacity:0;animation:fadeUp .8s .5s forwards;
+}
+.hstat-cell{
+  padding:18px 0 16px;
+  border-right:1px solid var(--border);
+  text-align:center;
+  background:var(--off);
+  transition:background .25s;
+  cursor:default;
+}
+.hstat-cell:last-child{border-right:none}
+.hstat-cell:hover{background:var(--green2)}
+.hstat-cell .hb-stat{
+  font-size:clamp(28px,3.5vw,46px);
+  text-shadow:0 0 30px rgba(170,255,0,.5);
+}
+.hstat-cell .hb-label{
+  font-size:9px;margin-top:4px;
+}
+/* bottom info strip */
+.hero-bottom{
+  display:grid;grid-template-columns:1fr 1fr;
+  border-top:1px solid var(--border);
+  margin-top:0;
+  opacity:0;animation:fadeUp .8s .62s forwards;
+}
+.hb-cell{
+  padding:20px 0;
+  border-right:1px solid var(--border);
+}
+.hb-cell:last-child{border-right:none}
+.hb-cell:nth-child(2){padding-left:32px}
+
+.hb-label{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.18em;text-transform:uppercase;color:var(--muted);
+  margin-bottom:6px;
+}
+.hb-val{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(13px,1.5vw,16px);
+  font-weight:500;color:var(--ink);
+  line-height:1.4;
+}
+.hb-val a{transition:color .2s}
+.hb-val a:hover{color:var(--green);text-decoration:none}
+.hb-stat{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(36px,4vw,60px);
+  font-weight:700;color:var(--green);
+  line-height:1;
+  /* green glow */
+  text-shadow:0 0 40px rgba(170,255,0,.4);
+}
+
+@keyframes fadeUp{from{opacity:0;transform:translateY(20px)}to{opacity:1;transform:translateY(0)}}
+
+/* ─────────────────────────────────────
+   LAYOUT WRAPPER
+───────────────────────────────────── */
+.main{
+  max-width:1280px;margin:0 auto;
+  padding:0 6vw;
+}
+
+/* ─────────────────────────────────────
+   SECTION HEADER
+───────────────────────────────────── */
+.sec-head{
+  display:flex;align-items:flex-end;justify-content:space-between;
+  padding:72px 0 40px;
+  border-bottom:1px solid var(--border);
+  margin-bottom:0;
+}
+.sec-label{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.22em;text-transform:uppercase;color:var(--muted);
+  display:flex;align-items:center;gap:10px;
+  margin-bottom:10px;
+}
+.sec-label::before{content:'//';color:var(--green);font-size:10px}
+.sec-title{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(36px,4.5vw,68px);
+  font-weight:600;letter-spacing:-.02em;
+  line-height:.95;color:var(--ink);
+}
+.sec-title .g{color:var(--green)}
+.sec-title .outline{
+  -webkit-text-stroke:1.5px var(--ink);color:transparent;
+}
+.sec-count{
+  font-family:'DM Mono',monospace;font-size:11px;
+  color:var(--muted);letter-spacing:.1em;
+  padding-bottom:4px;
+}
+
+/* ─────────────────────────────────────
+   EXPERIENCE
+───────────────────────────────────── */
+.exp-list{display:flex;flex-direction:column}
+.exp-item{
+  display:grid;
+  grid-template-columns:180px 1fr;
+  border-bottom:1px solid var(--border);
+  padding:44px 0;
+  position:relative;
+  transition:background .25s;
+  cursor:default;
+}
+.exp-item:hover{background:var(--green3)}
+.exp-item::after{
+  content:'';
+  position:absolute;bottom:-1px;left:0;
+  width:0;height:1px;
+  background:var(--green);
+  transition:width .5s cubic-bezier(.77,0,.18,1);
+}
+.exp-item:hover::after{width:100%}
+
+.exp-left{padding-right:28px;padding-top:4px}
+.exp-period{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.08em;color:var(--muted);
+  margin-bottom:8px;line-height:1.5;
+}
+.exp-org{font-size:12px;font-weight:500;color:var(--ink);margin-bottom:8px}
+.exp-tag{
+  display:inline-block;
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.1em;text-transform:uppercase;
+  padding:3px 9px;border-radius:2px;
+}
+.tag-now{background:var(--green);color:var(--ink)}
+.tag-done{background:var(--off);border:1px solid var(--border);color:var(--muted)}
+.vol-tag{
+  display:inline-block;margin-left:8px;
+  font-family:'DM Mono',monospace;font-size:8px;
+  letter-spacing:.1em;text-transform:uppercase;
+  background:var(--ink);color:var(--green);
+  padding:2px 7px;border-radius:2px;vertical-align:middle;
+}
+
+.exp-right{border-left:1px solid var(--border);padding-left:40px}
+.exp-item:hover .exp-right{border-left-color:rgba(170,255,0,.4)}
+
+.exp-role{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(20px,2.2vw,30px);
+  font-weight:600;letter-spacing:-.01em;
+  color:var(--ink);margin-bottom:16px;line-height:1.1;
+}
+.exp-pts{list-style:none;display:flex;flex-direction:column;gap:8px}
+.exp-pts li{
+  font-size:13.5px;color:var(--muted);
+  padding-left:20px;position:relative;line-height:1.7;
+}
+.exp-pts li::before{
+  content:'';position:absolute;left:0;top:11px;
+  width:10px;height:1px;background:var(--green);
+}
+
+/* ─────────────────────────────────────
+   CLIENTS
+───────────────────────────────────── */
+.clients-sec{padding:72px 0}
+
+.clients-split{
+  display:grid;grid-template-columns:280px 1fr;
+  gap:60px;align-items:start;
+}
+.clients-left{}
+.cl-intro{font-size:14px;color:var(--muted);line-height:1.85;margin-top:16px}
+.cl-intro strong{color:var(--ink);font-weight:500}
+
+.clients-right{}
+.cl-cloud{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:40px}
+.cl-pill{
+  font-size:12px;font-weight:400;
+  padding:8px 16px;border:1px solid var(--border);
+  border-radius:3px;color:var(--muted);
+  transition:all .22s;cursor:default;
+  background:var(--white);
+}
+.cl-pill:hover{
+  border-color:var(--green);color:var(--ink);
+  background:var(--green2);transform:translateY(-2px);
+}
+
+.pr-label{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:12px;
+  display:flex;align-items:center;gap:10px;
+}
+.pr-label::before{content:'//';color:var(--green)}
+.cl-pill-pr{border-color:rgba(170,255,0,.3);color:var(--ink);background:var(--green3)}
+.cl-pill-pr:hover{background:var(--green);border-color:var(--green)}
+
+/* ─────────────────────────────────────
+   SKILLS
+───────────────────────────────────── */
+.skills-sec{
+  border-top:1px solid var(--border);
+  padding:72px 0;
+}
+.skills-grid{
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:60px;
+}
+
+.sk-group{margin-bottom:44px}
+.sk-g-label{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:var(--muted);margin-bottom:14px;
+  display:flex;align-items:center;gap:8px;
+}
+.sk-g-label::before{content:'[';color:var(--green)}
+.sk-g-label::after{content:']';color:var(--green)}
+
+.sk-tags{display:flex;flex-wrap:wrap;gap:7px}
+.sk-t{
+  font-size:12px;padding:7px 14px;
+  border:1px solid var(--border);border-radius:3px;
+  color:var(--muted);cursor:default;
+  transition:all .2s;background:var(--white);
+}
+.sk-t:hover{
+  border-color:var(--green);color:var(--ink);
+  background:var(--green2);transform:translateY(-2px) skewX(-1deg);
+}
+
+/* tools list */
+.tools-list{
+  display:flex;flex-direction:column;gap:0;
+  border-top:1px solid var(--border);
+}
+.tool-row{
+  display:flex;align-items:center;justify-content:space-between;
+  padding:11px 0;border-bottom:1px solid var(--border);
+  font-size:13px;color:var(--muted);
+  transition:all .2s;cursor:default;
+}
+.tool-row:hover{color:var(--ink);padding-left:6px}
+.tool-arr{
+  font-size:11px;color:var(--green);
+  opacity:0;transition:opacity .2s,transform .2s;transform:translateX(-4px);
+}
+.tool-row:hover .tool-arr{opacity:1;transform:translateX(0)}
+
+/* ─────────────────────────────────────
+   EDUCATION & CERTS
+───────────────────────────────────── */
+.edu-sec{
+  border-top:1px solid var(--border);
+  padding:72px 0;
+  display:grid;grid-template-columns:1fr 1fr;gap:60px;
+}
+
+.edu-items{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.edu-row{
+  display:flex;align-items:flex-start;justify-content:space-between;
+  padding:24px 0;border-bottom:1px solid var(--border);
+  transition:background .2s;cursor:default;gap:20px;
+}
+.edu-row:hover{background:var(--green3);padding-left:8px}
+.edu-deg{font-family:'Clash Display',sans-serif;font-size:16px;font-weight:500;letter-spacing:-.01em;color:var(--ink);margin-bottom:4px}
+.edu-sch{font-size:12px;color:var(--muted)}
+.edu-yr{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.08em;color:var(--green);
+  white-space:nowrap;padding-top:4px;
+  background:var(--ink);padding:3px 9px;border-radius:2px;
+  height:fit-content;
+}
+
+.cert-items{display:flex;flex-direction:column;gap:0;border-top:1px solid var(--border)}
+.cert-row{
+  display:flex;align-items:center;gap:12px;
+  padding:14px 0;border-bottom:1px solid var(--border);
+  font-size:13px;color:var(--muted);
+  transition:all .2s;cursor:default;
+}
+.cert-row:hover{color:var(--ink);padding-left:6px}
+.cert-dot{
+  width:7px;height:7px;background:var(--green);border-radius:50%;flex-shrink:0;
+  box-shadow:0 0 10px rgba(170,255,0,.6);
+}
+
+/* ─────────────────────────────────────
+   LANGUAGES
+───────────────────────────────────── */
+.lang-sec{
+  border-top:1px solid var(--border);
+  padding:60px 0 0;
+  display:grid;grid-template-columns:repeat(3,1fr);
+  gap:0;
+}
+.lang-box{
+  padding:32px 28px;border-right:1px solid var(--border);
+  text-align:center;transition:background .25s;cursor:default;
+}
+.lang-box:last-child{border-right:none}
+.lang-box:hover{background:var(--green3)}
+.lang-nat{font-size:28px;margin-bottom:8px}
+.lang-name{
+  font-family:'Clash Display',sans-serif;font-size:22px;
+  font-weight:600;letter-spacing:-.01em;margin-bottom:4px;
+}
+.lang-lv{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.16em;text-transform:uppercase;color:var(--muted);
+}
+
+/* ─────────────────────────────────────
+   CONTACT STRIP
+───────────────────────────────────── */
+.contact-strip{
+  background:var(--ink);color:var(--white);
+  padding:72px 6vw;margin-top:0;
+  position:relative;overflow:hidden;
+}
+/* neon slash */
+.contact-strip::before{
+  content:'HIRE ME';
+  position:absolute;right:-2%;top:50%;transform:translateY(-50%);
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(80px,12vw,180px);
+  font-weight:700;letter-spacing:-.03em;
+  color:transparent;-webkit-text-stroke:1px rgba(170,255,0,.1);
+  pointer-events:none;user-select:none;line-height:1;
+}
+
+.cs-inner{
+  max-width:1280px;margin:0 auto;
+  display:grid;grid-template-columns:1fr 1fr;
+  gap:80px;align-items:center;
+  position:relative;z-index:2;
+}
+.cs-left{}
+.cs-pre{
+  font-family:'DM Mono',monospace;font-size:9px;
+  letter-spacing:.2em;text-transform:uppercase;
+  color:rgba(255,255,255,.4);margin-bottom:16px;
+  display:flex;align-items:center;gap:10px;
+}
+.cs-pre::before{content:'';width:20px;height:1px;background:var(--green)}
+.cs-h{
+  font-family:'Clash Display',sans-serif;
+  font-size:clamp(44px,5.5vw,80px);
+  font-weight:700;letter-spacing:-.02em;line-height:.92;
+  margin-bottom:24px;
+}
+.cs-h .g{color:var(--green)}
+.cs-h .out{-webkit-text-stroke:1.5px rgba(255,255,255,.25);color:transparent;display:block}
+.cs-sub{font-size:14px;color:rgba(255,255,255,.55);line-height:1.85;max-width:380px}
+.cs-right{}
+.cs-links{display:flex;flex-direction:column;gap:10px}
+.cs-link{
+  display:flex;align-items:center;gap:14px;
+  color:rgba(255,255,255,.6);font-size:13px;
+  padding:14px 18px;
+  border:1px solid rgba(255,255,255,.08);border-radius:4px;
+  background:rgba(255,255,255,.03);
+  transition:all .25s;
+}
+.cs-link:hover{
+  color:var(--ink);border-color:var(--green);
+  background:var(--green);transform:translateX(5px);
+}
+.cs-ico{
+  width:30px;height:30px;border-radius:4px;
+  background:rgba(255,255,255,.07);
+  display:flex;align-items:center;justify-content:center;
+  font-size:14px;flex-shrink:0;
+  transition:background .2s;
+}
+.cs-link:hover .cs-ico{background:rgba(0,0,0,.15)}
+
+/* ─────────────────────────────────────
+   FOOTER
+───────────────────────────────────── */
+footer{
+  background:var(--ink);
+  border-top:1px solid rgba(255,255,255,.07);
+  padding:32px 6vw;
+}
+.foot-inner{
+  max-width:1280px;margin:0 auto;
+  display:flex;justify-content:space-between;align-items:center;
+  flex-wrap:wrap;gap:16px;
+}
+.foot-name{
+  font-family:'Clash Display',sans-serif;
+  font-size:18px;font-weight:600;letter-spacing:-.01em;color:var(--white);
+}
+.foot-name .g{color:var(--green)}
+.foot-copy{
+  font-family:'DM Mono',monospace;font-size:10px;
+  letter-spacing:.08em;color:rgba(255,255,255,.3);
+}
+
+/* ─────────────────────────────────────
+   REVEAL
+───────────────────────────────────── */
+.rv{opacity:0;transform:translateY(28px);transition:opacity .75s ease,transform .75s ease}
+.rv.on{opacity:1;transform:translateY(0)}
+
+/* ─────────────────────────────────────
+   PRINT STYLES
+───────────────────────────────────── */
+@media print{
+  body{cursor:auto}
+  #c1,#c2,.topbar,.nav,footer{display:none}
+  .hero{padding-top:24px}
+  .exp-item:hover,.cl-pill:hover,.sk-t:hover,
+  .tool-row:hover,.edu-row:hover,.cert-row:hover,
+  .lang-box:hover{background:none;padding-left:0;transform:none}
+  .contact-strip{background:var(--off);color:var(--ink)}
+  .cs-link{color:var(--ink);border-color:var(--border)}
+}
+
+/* ─────────────────────────────────────
+   RESPONSIVE
+───────────────────────────────────── */
+@media(max-width:900px){
+  .nav-links{display:none}
+  .hero-stats{grid-template-columns:1fr 1fr}
+  .hero-bottom{grid-template-columns:1fr}
+  .exp-item{grid-template-columns:1fr}
+  .exp-right{border-left:none;padding-left:0;border-top:1px solid var(--border);padding-top:20px;margin-top:12px}
+  .clients-split{grid-template-columns:1fr}
+  .skills-grid{grid-template-columns:1fr}
+  .edu-sec{grid-template-columns:1fr}
+  .lang-sec{grid-template-columns:1fr 1fr}
+  .cs-inner{grid-template-columns:1fr}
+  footer{flex-direction:column;align-items:flex-start}
+}
+@media(max-width:540px){
+  .lang-sec{grid-template-columns:1fr}
+  .lang-box{border-right:none;border-bottom:1px solid var(--border)}
+}
+</style>
+</head>
+<body>
+
+<!-- Cursor -->
+<div id="c1"></div>
+<div id="c2"></div>
+
+<!-- Neon Ticker -->
+<div class="topbar">
+  <div class="topbar-track">
+    <span class="t-item">MOEEZ AHMAD <span class="t-sep">✦</span></span>
+    <span class="t-item">SOCIAL MEDIA MANAGER <span class="t-sep">✦</span></span>
+    <span class="t-item">PR EXECUTIVE <span class="t-sep">✦</span></span>
+    <span class="t-item">AI CREATIVE SPECIALIST <span class="t-sep">✦</span></span>
+    <span class="t-item">FAISALABAD, PAKISTAN <span class="t-sep">✦</span></span>
+    <span class="t-item">PLANTASTIC DIGITAL <span class="t-sep">✦</span></span>
+    <span class="t-item">OPEN TO WORK <span class="t-sep">✦</span></span>
+    <span class="t-item">MOEEZ AHMAD <span class="t-sep">✦</span></span>
+    <span class="t-item">SOCIAL MEDIA MANAGER <span class="t-sep">✦</span></span>
+    <span class="t-item">PR EXECUTIVE <span class="t-sep">✦</span></span>
+    <span class="t-item">AI CREATIVE SPECIALIST <span class="t-sep">✦</span></span>
+    <span class="t-item">FAISALABAD, PAKISTAN <span class="t-sep">✦</span></span>
+    <span class="t-item">PLANTASTIC DIGITAL <span class="t-sep">✦</span></span>
+    <span class="t-item">OPEN TO WORK <span class="t-sep">✦</span></span>
+  </div>
+</div>
+
+<!-- Nav -->
+<nav class="nav">
+  <div class="nav-logo">moeez.ahmad<span></span></div>
+  <div class="nav-links">
+    <a href="#exp">Experience</a>
+    <a href="#clients">Clients</a>
+    <a href="#skills">Skills</a>
+    <a href="#edu">Education</a>
+    <a href="#contact" class="nav-cta">Hire Me</a>
+  </div>
+</nav>
+
+<!-- ══ HERO ══ -->
+<section class="hero">
+  <div class="hero-inner">
+    <div class="h-eyebrow">
+      CV — 2025
+      <span class="green">Open to Work</span>
+    </div>
+
+    <h1 class="hero-name">
+      <span class="row"><span>MOEEZ</span></span>
+      <span class="row"><span>AHMAD</span></span>
+    </h1>
+
+    <!-- Stats Bar -->
+    <div class="hero-stats">
+      <div class="hstat-cell">
+        <div class="hb-stat">16+</div>
+        <div class="hb-label">Clients</div>
+      </div>
+      <div class="hstat-cell">
+        <div class="hb-stat">8+</div>
+        <div class="hb-label">Niche's</div>
+      </div>
+      <div class="hstat-cell">
+        <div class="hb-stat">4</div>
+        <div class="hb-label">PR Campaigns</div>
+      </div>
+      <div class="hstat-cell">
+        <div class="hb-stat">3+</div>
+        <div class="hb-label">Years Experience</div>
+      </div>
+    </div>
+
+    <!-- Info Strip -->
+    <div class="hero-bottom">
+      <div class="hb-cell">
+        <div class="hb-label">Role</div>
+        <div class="hb-val">
+          Social Media Manager<br>
+          PR Executive<br>
+          AI Creative Specialist
+        </div>
+      </div>
+      <div class="hb-cell">
+        <div class="hb-label">Contact</div>
+        <div class="hb-val">
+          <a href="tel:03391234450">0339 1234450</a><br>
+          <a href="mailto:moeezrajpoot204@gmail.com">moeezrajpoot204@gmail.com</a><br>
+          <a href="https://www.linkedin.com/in/moeez-ahmad-rajpoot" target="_blank">LinkedIn ↗</a><br>
+          Faisalabad, Pakistan
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ══ EXPERIENCE ══ -->
+<div class="main">
+  <div class="sec-head rv" id="exp">
+    <div>
+      <div class="sec-label">Work Experience</div>
+      <h2 class="sec-title">WHERE I'VE<br><span class="g">WORKED</span></h2>
+    </div>
+    <div class="sec-count">05 roles</div>
+  </div>
+
+  <div class="exp-list">
+
+    <div class="exp-item rv">
+      <div class="exp-left">
+        <div class="exp-period">Jan 2025<br>Present</div>
+        <div class="exp-org">Plantastic Digital</div>
+        <span class="exp-tag tag-now">Active</span>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Social Media Manager</div>
+        <ul class="exp-pts">
+          <li>Managing content strategy for 10+ clients across food, café, real estate, automotive, retail, education, wellness and fashion.</li>
+          <li>Planning monthly content calendars, Instagram reels, captions, stories, hooks and high-converting CTAs.</li>
+          <li>Creative direction — coordinating with designers and editors on post layouts, reel flow and brand tone.</li>
+          <li>Competitor research, trend analysis and audience insights to sharpen every content decision.</li>
+          <li>AI-assisted creative concepts: post ideas, video scripts, image prompts and campaign narratives.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item rv">
+      <div class="exp-left">
+        <div class="exp-period">Jan 2026<br>Present</div>
+        <div class="exp-org">Plantastic Media</div>
+        <span class="exp-tag tag-now">Active</span>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">PR Executive</div>
+        <ul class="exp-pts">
+          <li>Full PR coordination for food and restaurant brands in Faisalabad — strategy to execution.</li>
+          <li>Shortlisting bloggers, influencers, creators and local pages based on niche, reach and audience fit.</li>
+          <li>Pitching collaborations, negotiating rates, defining deliverables and managing campaign execution end-to-end.</li>
+          <li>Running campaigns across food reviews, reels, stories, brand launch events and creator visits.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item rv">
+      <div class="exp-left">
+        <div class="exp-period">Aug 2025<br>Present</div>
+        <div class="exp-org">Khair ul Abd<br>Foundation</div>
+        <span class="exp-tag tag-now">Active</span>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">
+          Social Media Head
+          <span class="vol-tag">Volunteer</span>
+        </div>
+        <ul class="exp-pts">
+          <li>Leading content planning for welfare, donation, awareness and social impact campaigns.</li>
+          <li>Creating graphic posts, captions, campaign messaging and video content for NGO outreach.</li>
+          <li>Covering food drives, orphanage visits, old age home visits and community welfare activities.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item rv">
+      <div class="exp-left">
+        <div class="exp-period">Sep 2024<br>Nov 2024</div>
+        <div class="exp-org">Wapexp Institute</div>
+        <span class="exp-tag tag-done">Completed</span>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">E-Commerce & Data Entry Intern</div>
+        <ul class="exp-pts">
+          <li>Uploading Shopify product data — titles, descriptions, pricing, images and categories.</li>
+          <li>Managing product listings and organizing data using Excel and Google Sheets.</li>
+        </ul>
+      </div>
+    </div>
+
+    <div class="exp-item rv">
+      <div class="exp-left">
+        <div class="exp-period">Oct 2023<br>Jan 2024</div>
+        <div class="exp-org">Wapexp Institute</div>
+        <span class="exp-tag tag-done">Completed</span>
+      </div>
+      <div class="exp-right">
+        <div class="exp-role">Content Writing / SEO Intern</div>
+        <ul class="exp-pts">
+          <li>Writing SEO-based blog content using keyword and topic research guidelines.</li>
+          <li>Learning on-page SEO: keyword placement, headings, readability and internal linking.</li>
+        </ul>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- ══ CLIENTS ══ -->
+  <div class="clients-sec" id="clients">
+    <div class="sec-head rv" style="padding-top:0">
+      <div>
+        <div class="sec-label">Portfolio</div>
+        <h2 class="sec-title">CLIENTS &<br><span class="outline">PROJECTS</span></h2>
+      </div>
+      <div class="sec-count">16 brands</div>
+    </div>
+
+    <div class="clients-split" style="margin-top:48px">
+      <div class="clients-left rv">
+        <div class="sec-label">Social Media Clients</div>
+        <p class="cl-intro">
+          Managing <strong>content strategy</strong> across 8+ industries — from automotive showrooms and real estate developments to cafés, clinics and fashion brands.
+        </p>
+      </div>
+      <div class="clients-right rv">
+        <div class="cl-cloud">
+          <span class="cl-pill">Nisa Sultan</span>
+          <span class="cl-pill">Eddy's Café</span>
+          <span class="cl-pill">MG Lyallpur</span>
+          <span class="cl-pill">Chery Canal Motors</span>
+          <span class="cl-pill">Mahara</span>
+          <span class="cl-pill">West Canal Residence</span>
+          <span class="cl-pill">The Grand Atrium</span>
+          <span class="cl-pill">Al-Fatah Canal Road</span>
+          <span class="cl-pill">Penorama Study Abroad</span>
+          <span class="cl-pill">Zen Café Tea & Cakes</span>
+          <span class="cl-pill">KAMA Pakistan</span>
+          <span class="cl-pill">Reviv Wellness Clinic</span>
+          <span class="cl-pill">Medaid Clinic</span>
+          <span class="cl-pill">Gullerukh</span>
+          <span class="cl-pill">Lahore Foodies & Sweets</span>
+          <span class="cl-pill">Cheese Hub</span>
+        </div>
+        <div class="pr-label">PR Campaigns</div>
+        <div class="cl-cloud">
+          <span class="cl-pill cl-pill-pr">Broadway Pizza</span>
+          <span class="cl-pill cl-pill-pr">Brim Burgers</span>
+          <span class="cl-pill cl-pill-pr">Sultan Shawarma</span>
+          <span class="cl-pill cl-pill-pr">Nisa Sultan</span>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ SKILLS ══ -->
+  <div class="skills-sec" id="skills">
+    <div class="sec-head rv" style="padding-top:0;margin-bottom:48px">
+      <div>
+        <div class="sec-label">Capabilities</div>
+        <h2 class="sec-title">SKILLS &<br><span class="g">TOOLS</span></h2>
+      </div>
+    </div>
+
+    <div class="skills-grid">
+      <div>
+        <div class="sk-group rv">
+          <div class="sk-g-label">Core Skills</div>
+          <div class="sk-tags">
+            <span class="sk-t">Social Media Management</span>
+            <span class="sk-t">Content Strategy</span>
+            <span class="sk-t">Monthly Calendars</span>
+            <span class="sk-t">Reels Planning</span>
+            <span class="sk-t">Caption Writing</span>
+            <span class="sk-t">Campaign Planning</span>
+            <span class="sk-t">Hook & CTA Writing</span>
+            <span class="sk-t">Creative Direction</span>
+            <span class="sk-t">Brand Tone</span>
+            <span class="sk-t">Client Coordination</span>
+          </div>
+        </div>
+        <div class="sk-group rv">
+          <div class="sk-g-label">PR & Research</div>
+          <div class="sk-tags">
+            <span class="sk-t">PR Coordination</span>
+            <span class="sk-t">Blogger Outreach</span>
+            <span class="sk-t">Influencer Collaboration</span>
+            <span class="sk-t">Brand Launch Campaigns</span>
+            <span class="sk-t">Event Coverage Planning</span>
+            <span class="sk-t">Competitor Research</span>
+            <span class="sk-t">Trend Research</span>
+            <span class="sk-t">Audience Analysis</span>
+            <span class="sk-t">AI Image Prompting</span>
+            <span class="sk-t">AI Video Concepts</span>
+          </div>
+        </div>
+      </div>
+
+      <div class="rv">
+        <div class="sk-g-label" style="margin-bottom:16px">Tools & Platforms</div>
+        <div class="tools-list">
+          <div class="tool-row">Canva <span class="tool-arr">→</span></div>
+          <div class="tool-row">CapCut <span class="tool-arr">→</span></div>
+          <div class="tool-row">Meta Business Suite <span class="tool-arr">→</span></div>
+          <div class="tool-row">Instagram Insights <span class="tool-arr">→</span></div>
+          <div class="tool-row">Google Sheets / MS Excel <span class="tool-arr">→</span></div>
+          <div class="tool-row">Shopify <span class="tool-arr">→</span></div>
+          <div class="tool-row">WordPress <span class="tool-arr">→</span></div>
+          <div class="tool-row">ChatGPT / AI Tools <span class="tool-arr">→</span></div>
+          <div class="tool-row">AI Image & Video Tools <span class="tool-arr">→</span></div>
+          <div class="tool-row">Google Docs & Slides <span class="tool-arr">→</span></div>
+          <div class="tool-row">SEO Tools <span class="tool-arr">→</span></div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ EDUCATION ══ -->
+  <div class="edu-sec rv" id="edu">
+    <div>
+      <div class="sec-label">Education</div>
+      <div style="margin-top:16px">
+        <div class="edu-items">
+          <div class="edu-row">
+            <div>
+              <div class="edu-deg">Intermediate — ICS Statistics</div>
+              <div class="edu-sch">Superior Group of Colleges, Faisalabad</div>
+            </div>
+            <span class="edu-yr">2022 – 2024</span>
+          </div>
+          <div class="edu-row">
+            <div>
+              <div class="edu-deg">Matriculation — Computer Science</div>
+              <div class="edu-sch">Government Muslim High School, Faisalabad</div>
+            </div>
+            <span class="edu-yr">2020 – 2022</span>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div>
+      <div class="sec-label">Certifications</div>
+      <div style="margin-top:16px">
+        <div class="cert-items">
+          <div class="cert-row"><span class="cert-dot"></span>Digital Marketing Certification — 2023</div>
+          <div class="cert-row"><span class="cert-dot"></span>SEO / Content Writing Training</div>
+          <div class="cert-row"><span class="cert-dot"></span>E-Commerce / Shopify Internship</div>
+          <div class="cert-row"><span class="cert-dot"></span>ASO Basics</div>
+          <div class="cert-row"><span class="cert-dot"></span>Graphics / Creative Classes</div>
+          <div class="cert-row"><span class="cert-dot"></span>Appreciation Certificate — Plantastic Digital ✦</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ══ LANGUAGES ══ -->
+  <div class="lang-sec rv">
+    <div class="lang-box">
+      <div class="lang-nat" style="color:#E8311A">اردو</div>
+      <div class="lang-name" style="color:#E8311A">Urdu</div>
+      <div class="lang-lv">Native</div>
+    </div>
+    <div class="lang-box">
+      <div class="lang-nat" style="color:var(--green)">ਪੰਜਾਬੀ</div>
+      <div class="lang-name" style="color:var(--green)">Punjabi</div>
+      <div class="lang-lv">Fluent</div>
+    </div>
+    <div class="lang-box">
+      <div class="lang-nat" style="font-size:22px;color:#1A1AFF">EN</div>
+      <div class="lang-name" style="color:#1A1AFF">English</div>
+      <div class="lang-lv">Professional Writing</div>
+    </div>
+  </div>
+
+</div><!-- /main -->
+
+<!-- ══ CONTACT STRIP ══ -->
+<div class="contact-strip" id="contact">
+  <div class="cs-inner">
+    <div class="cs-left">
+      <div class="cs-pre">Get in Touch</div>
+      <h2 class="cs-h">
+        LET'S
+        <span class="out">CREATE</span>
+        <span class="g">TOGETHER.</span>
+      </h2>
+      <p class="cs-sub">Open to projects, retainers, PR campaigns and full-time roles. Based in Faisalabad — working with brands everywhere.</p>
+    </div>
+    <div class="cs-right">
+      <div class="cs-links">
+        <a href="tel:03391234450" class="cs-link">
+          <span class="cs-ico">📞</span>0339 1234450
+        </a>
+        <a href="mailto:moeezrajpoot204@gmail.com" class="cs-link">
+          <span class="cs-ico">✉️</span>moeezrajpoot204@gmail.com
+        </a>
+        <a href="https://www.linkedin.com/in/moeez-ahmad-rajpoot" target="_blank" class="cs-link">
+          <span class="cs-ico">💼</span>linkedin.com/in/moeez-ahmad-rajpoot
+        </a>
+        <span class="cs-link">
+          <span class="cs-ico">📍</span>Faisalabad, Pakistan
+        </span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<!-- ══ FOOTER ══ -->
+<footer>
+  <div class="foot-inner">
+    <div>
+      <div class="foot-name">MOEEZ <span class="g">AHMAD</span></div>
+    </div>
+    <div class="foot-copy">Social Media Manager · PR Executive · AI Creative Specialist · © 2025</div>
+  </div>
+</footer>
+
+<script>
+/* cursor */
+const c1=document.getElementById('c1'),c2=document.getElementById('c2');
+let mx=0,my=0,rx=0,ry=0;
+document.addEventListener('mousemove',e=>{
+  mx=e.clientX;my=e.clientY;
+  c1.style.transform=`translate(${mx}px,${my}px) translate(-50%,-50%)`;
+});
+(function loop(){
+  rx+=(mx-rx)*.1;ry+=(my-ry)*.1;
+  c2.style.transform=`translate(${rx}px,${ry}px) translate(-50%,-50%)`;
+  requestAnimationFrame(loop);
+})();
+document.querySelectorAll('a,button,.cl-pill,.sk-t,.tool-row,.exp-item,.lang-box,.cert-row,.edu-row').forEach(el=>{
+  el.addEventListener('mouseenter',()=>{
+    c1.style.width='14px';c1.style.height='14px';c1.style.background='#AAFF00';
+    c2.style.borderColor='rgba(170,255,0,.5)';c2.style.width='48px';c2.style.height='48px';
+  });
+  el.addEventListener('mouseleave',()=>{
+    c1.style.width='8px';c1.style.height='8px';c1.style.background='var(--ink)';
+    c2.style.borderColor='rgba(12,12,10,.2)';c2.style.width='36px';c2.style.height='36px';
+  });
+});
+
+/* reveal */
+const obs=new IntersectionObserver(entries=>{
+  entries.forEach((e,i)=>{
+    if(e.isIntersecting){
+      e.target.style.transitionDelay=(i%4)*.09+'s';
+      e.target.classList.add('on');
+    }
+  });
+},{threshold:.07});
+document.querySelectorAll('.rv').forEach(el=>obs.observe(el));
+</script>
+</body>
+</html>
